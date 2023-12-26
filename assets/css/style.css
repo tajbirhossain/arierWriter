@@ -94,7 +94,7 @@ main {
     padding-bottom: 0;
 }
 .fa-bars {
-    display: none;
+    display: none !important;
 }
 
 
@@ -638,7 +638,7 @@ footer ul li a {
         position: relative;
     }
     .fa-bars {
-        display: block;
+        display: block !important;
         position: absolute;
         left: 0;
         top: 9px;
