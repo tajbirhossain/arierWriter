@@ -1385,6 +1385,13 @@ footer ul li a {
         margin-bottom: 20px;
     }
 }
+
+
+@media (max-width: 400px) {
+    .loginContainer {
+        padding: 38px 25px;
+    }
+}
 /* third page ends */
 
 
@@ -2006,6 +2013,11 @@ footer ul li a {
     align-items: center;
     justify-content: space-between;
     margin-bottom: 30px;
+    position: relative;
+    padding-top: 25px;
+}
+.resTop .fa-bars {
+    top: -30px;
 }
 .resTop .resBtn {
     display: flex;
