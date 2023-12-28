@@ -527,7 +527,8 @@
             const allSelects = document.querySelectorAll('.custom-select');
 
             allSelects.forEach(function (select) {
-                if (!select.contains(e.target)) {
+                // Check if the clicked element is the current select or its children
+                if (select !== e.target && !select.contains(e.target)) {
                     select.classList.remove('open');
                 }
             });
@@ -538,6 +539,14 @@
         customSelects.forEach(function (select) {
             select.addEventListener('click', function (e) {
                 e.stopPropagation(); // Prevent the click event from propagating to the document
+
+                // Close all other selects before opening the current one
+                customSelects.forEach(function (otherSelect) {
+                    if (otherSelect !== select) {
+                        otherSelect.classList.remove('open');
+                    }
+                });
+
                 this.classList.toggle('open');
             });
 
@@ -554,6 +563,27 @@
                 });
             });
         });
+
+
+
+        const allGpt = document.querySelectorAll(".singleGpt")
+        const writerBtns = document.querySelectorAll(".writerBtnWrap button")
+        allGpt.forEach(item => {
+            item.addEventListener("click", () => {
+                allGpt.forEach(val => {
+                    val.classList.remove("active")
+                })
+                item.classList.add("active")
+            })
+        })
+        writerBtns.forEach(item => {
+            item.addEventListener("click", () => {
+                writerBtns.forEach(val => {
+                    val.classList.remove("active")
+                })
+                item.classList.add("active")
+            })
+        })
     </script>
 </body>
 

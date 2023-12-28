@@ -1483,6 +1483,7 @@ footer ul li a {
 }
 
 .custom-select.open .select-options {
+    width: 100% !important;
     display: block;
 }
 
@@ -1753,7 +1754,7 @@ footer ul li a {
     border: 1px solid #8EC4D2;
     position: relative;
 }
-.gptWrap .singleGpt .gptLeft::after {
+.gptWrap .singleGpt.active .gptLeft::after {
     width: 8px;
     height: 8px;
     background-color: #8EC4D2;
@@ -2102,13 +2103,24 @@ footer ul li a {
 
 
 @media (max-width: 600px) {
+    .resTop {
+        flex-direction: column;
+        align-items: flex-start;
+    }
     .resTop .resBtn {
         flex-wrap: wrap;
     }
     .resTop .resBtn button {
+        width: 105px;
         height: 42px;
         font-size: 14px;
         margin-bottom: 10px;
+    }
+    .resTop .resBtn button img {
+        margin-right: 2px;
+    }
+    .resTop p {
+        margin-top: 20px;
     }
     .resMainContent h1 {
         font-size: 36px;
@@ -2122,6 +2134,15 @@ footer ul li a {
     }
     .realToggleActivated ul li .toggleActivatedInner p {
         font-size: 14px;
+    }
+}
+
+
+
+@media (max-width: 400px) {
+    .resTop .resBtn button {
+        width: fit-content;
+        padding: 0 7px;
     }
 }
 /* sixth page ends */
@@ -2799,7 +2820,7 @@ footer ul li a {
 
 
 @media (max-width:  1300px) {
-    .usageRight button, .usageLeft h2, .finalAllInp h2, .currentPlan h2, .historicalContent h2, .invCostLeft p span {
+    .usageLeft h2, .finalAllInp h2, .currentPlan h2, .historicalContent h2, .invCostLeft p span {
         font-size: 22px;
     }
 
@@ -2853,8 +2874,11 @@ footer ul li a {
 
 
 @media (max-width: 900px) {
-    .usageRight button, .usageLeft h2, .finalAllInp h2, .currentPlan h2, .historicalContent h2, .invCostLeft p span {
+    .usageLeft h2, .finalAllInp h2, .currentPlan h2, .historicalContent h2{
         font-size: 20px;
+    }
+    .usageRight h3 {
+        font-size: 18px;
     }
 
     .finalInpRow .finalSingleInp input {
@@ -2874,20 +2898,57 @@ footer ul li a {
         height: 44px;
     }
 
+    .historicalContent table {
+        width: 100%;
+        padding-right: 10px;
+    }
+    .historicalContent table th {
+        font-size: 14px;
+    }
+    .historicalContent table td {
+        font-size: 12px;
+        padding-right: 10px;
+    }
+    .historicalContent table td .histBtnWrap button {
+        font-size: 12px;
+    }
+
     .finalInpRow .finalSingleInp label, .curPlanBtn, .curPlanSaveRight button, .lastInvTop .invBtnWrap button, .invBillWrap p, .usageSingleProgress p {
         font-size: 15px;
     }
-
-    .invHeaing span {
-        font-size: 27px;
+    .invCostLeft p span {
+        font-size: 15px;
     }
 
-    .singlCurPlan p, .invTopAddress p, .usageRight p, .invBillWrap h4, .invConstHeading p, .invCostLeft p:last-child, .invConstRight p, .invPaidLeft p, .invThank h4 {
+    .invHeaing img {
+        width: 38px;
+    }
+    .invHeaing span {
+        font-size: 22px;
+    }
+
+    .singlCurPlan p, .usageRight p {
         font-size: 17px;
     }
 
+    .invTopAddress p, .invBillWrap h4, .invConstHeading p, .invCostLeft p:last-child, .invConstRight p, .invPaidLeft p, .invThank h4 {
+        font-size: 12px;
+    }
+
+    .invBillRight .billRightBottom p small {
+        font-size: 14px;
+    }
+    .invCostLeft p {
+        font-size: 14px;
+    }
     .lastInvWrap h3 {
-        font-size: 31px;
+        font-size: 28px;
+    }
+
+
+
+    .lastInvContent {
+        width: 100%;
     }
     
 }
@@ -2904,6 +2965,9 @@ footer ul li a {
     }
     .usageRight {
         width: 100%;
+    }
+    .usageRight h2 {
+        font-size: 16px;
     }
 
     .curPlanRow {
@@ -2931,15 +2995,23 @@ footer ul li a {
     }
 
 
-    .usageRight button, .usageLeft h2, .finalAllInp h2, .currentPlan h2, .historicalContent h2, .invCostLeft p span {
+    .usageRight button, .usageLeft h2, .finalAllInp h2, .currentPlan h2, .historicalContent h2 {
         font-size: 18px;
     }
     .finalInpRow .finalSingleInp label, .curPlanBtn, .curPlanSaveRight button, .lastInvTop .invBtnWrap button, .invBillWrap p, .usageSingleProgress p {
         font-size: 14px;
     }
 
-    .singlCurPlan p, .invTopAddress p, .usageRight p, .invBillWrap h4, .invConstHeading p, .invCostLeft p:last-child, .invConstRight p, .invPaidLeft p, .invThank h4 {
+    .singlCurPlan p .usageRight p {
         font-size: 16px;
+    }
+
+
+    .invConstHeading .costHeaingLeft p:first-child {
+        padding-right: 10px;
+    }
+    .invCostLeft p:first-child {
+        padding-right: 10px;
     }
 }
 /* seventh page ends */
