@@ -804,6 +804,7 @@ footer ul li a {
         width: 270px;
         left: -280px;
         padding: 40px 20px;
+        padding-top: 80px;
         transition: .3s;
         z-index: 100;
     }
