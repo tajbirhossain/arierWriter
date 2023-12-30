@@ -14,6 +14,13 @@
 <body>
     <div class="overlay"></div>
     <aside>
+        <div class="modeToggle">
+            <p>Dark</p>
+            <div class="modeSwitch">
+                <input type="checkbox" name="modeInp" id="modeInp">
+                <label for="modeInp"></label>
+            </div>
+        </div>
         <ul>
             <li class="active">
                 <a href="#">
@@ -359,6 +366,52 @@
 
 
     <script src="assets/js/main.js"></script>
+
+    <script>
+        const isLight = JSON.parse(localStorage.getItem("isLight"))
+        const sidebar = document.querySelector("aside")
+        const modeSwitch = document.querySelector(".modeSwitch input")
+        const modeText = document.querySelector(".modeToggle p")
+
+        const body = document.querySelector("body")
+        const main = document.querySelector("main")
+
+
+        if (isLight) {
+            modeSwitch.checked = true
+            body.style = `background-color: #ECECEF`
+            modeText.classList.add("light")
+            modeText.innerText = "Light"
+            main.classList.add("light")
+            aside.classList.add("light")
+        } else {
+            body.style = `background-color: #1E1E2F`
+            modeText.classList.remove("light")
+            modeText.innerText = "Dark"
+            main.classList.remove("light")
+            aside.classList.remove("light")
+            modeSwitch.checked = false
+        }
+
+
+        modeSwitch.addEventListener("change", e => {
+            localStorage.setItem("isLight", JSON.stringify(modeSwitch.checked))
+            if (modeSwitch.checked) {
+                body.style = `background-color: #ECECEF`
+                modeText.classList.add("light")
+                modeText.innerText = "Light"
+                main.classList.add("light")
+                aside.classList.add("light")
+            } else {
+                body.style = `background-color: #1E1E2F`
+                modeText.classList.remove("light")
+                modeText.innerText = "Dark"
+                main.classList.remove("light")
+                aside.classList.remove("light")
+            }
+        })
+
+    </script>
 </body>
 
 </html>

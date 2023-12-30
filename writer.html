@@ -14,6 +14,13 @@
 <body>
     <div class="overlay"></div>
     <aside>
+        <div class="modeToggle">
+            <p>Dark</p>
+            <div class="modeSwitch">
+                <input type="checkbox" name="modeInp" id="modeInp">
+                <label for="modeInp"></label>
+            </div>
+        </div>
         <ul>
             <li>
                 <a href="#">
@@ -186,7 +193,7 @@
                                 that you try it out along with GPT-4 Turbo.</span>
                         </p>
                     </div>
-                    <div class="writerBtnWrap">
+                    <div class="writerBtnWrap writerBtnWrap1">
                         <button class="active">Default</button>
                         <button>Manual</button>
                         <button>AI-Powered</button>
@@ -243,7 +250,7 @@
                             <img src="assets/images/Information Circle.svg" alt="">
                         </h3>
                     </div>
-                    <div class="writerBtnWrap">
+                    <div class="writerBtnWrap writerBtnWrap2">
                         <button class="active">None</button>
                         <button>Auto</button>
                         <button>Images</button>
@@ -523,7 +530,6 @@
 
 
     <script>
-        // JavaScript to handle the custom select functionality
         document.addEventListener('click', function (e) {
             const allSelects = document.querySelectorAll('.custom-select');
 
@@ -534,14 +540,10 @@
                 }
             });
         });
-
         const customSelects = document.querySelectorAll('.custom-select');
-
         customSelects.forEach(function (select) {
             select.addEventListener('click', function (e) {
-                e.stopPropagation(); // Prevent the click event from propagating to the document
-
-                // Close all other selects before opening the current one
+                e.stopPropagation();
                 customSelects.forEach(function (otherSelect) {
                     if (otherSelect !== select) {
                         otherSelect.classList.remove('open');
@@ -554,7 +556,7 @@
             const options = select.querySelectorAll('.select-option');
             options.forEach(function (option) {
                 option.addEventListener('click', function (e) {
-                    e.stopPropagation(); // Prevent the click event from propagating to the document
+                    e.stopPropagation();
                     const value = this.dataset.value;
                     const selectElement = select.querySelector('select');
                     const styledSelect = select.querySelector('.select-styled');
@@ -568,7 +570,8 @@
 
 
         const allGpt = document.querySelectorAll(".singleGpt")
-        const writerBtns = document.querySelectorAll(".writerBtnWrap button")
+        const writerBtns1 = document.querySelectorAll(".writerBtnWrap1 button")
+        const writerBtns2 = document.querySelectorAll(".writerBtnWrap2 button")
         allGpt.forEach(item => {
             item.addEventListener("click", () => {
                 allGpt.forEach(val => {
@@ -577,13 +580,67 @@
                 item.classList.add("active")
             })
         })
-        writerBtns.forEach(item => {
+        writerBtns1.forEach(item => {
             item.addEventListener("click", () => {
-                writerBtns.forEach(val => {
+                writerBtns1.forEach(val => {
                     val.classList.remove("active")
                 })
                 item.classList.add("active")
             })
+        })
+        writerBtns2.forEach(item => {
+            item.addEventListener("click", () => {
+                writerBtns2.forEach(val => {
+                    val.classList.remove("active")
+                })
+                item.classList.add("active")
+            })
+        })
+
+
+
+
+        const isLight = JSON.parse(localStorage.getItem("isLight"))
+        const sidebar = document.querySelector("aside")
+        const modeSwitch = document.querySelector(".modeSwitch input")
+        const modeText = document.querySelector(".modeToggle p")
+
+        const body = document.querySelector("body")
+        const main = document.querySelector("main")
+
+
+        if (isLight) {
+            modeSwitch.checked = true
+            body.style = `background-color: #ECECEF`
+            modeText.classList.add("light")
+            modeText.innerText = "Light"
+            main.classList.add("light")
+            aside.classList.add("light")
+        } else {
+            body.style = `background-color: #1E1E2F`
+            modeText.classList.remove("light")
+            modeText.innerText = "Dark"
+            main.classList.remove("light")
+            aside.classList.remove("light")
+            modeSwitch.checked = false
+        }
+
+
+        modeSwitch.addEventListener("change", e => {
+            localStorage.setItem("isLight", JSON.stringify(modeSwitch.checked))
+            if (modeSwitch.checked) {
+                body.style = `background-color: #ECECEF`
+                modeText.classList.add("light")
+                modeText.innerText = "Light"
+                main.classList.add("light")
+                aside.classList.add("light")
+            } else {
+                body.style = `background-color: #1E1E2F`
+                modeText.classList.remove("light")
+                modeText.innerText = "Dark"
+                main.classList.remove("light")
+                aside.classList.remove("light")
+            }
         })
     </script>
 </body>

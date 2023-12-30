@@ -43,6 +43,64 @@ aside {
     height: 100vh;
     background-color: #27293D;
     padding: 60px 30px;
+    padding-top: 80px;
+}
+aside.light {
+    background-color: #f5f6f9;
+    border-right: 1px solid #0000001c;
+}
+aside .modeToggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+}
+aside .modeToggle p {
+    font-size: 17px;
+    color: #fff;
+}
+aside.light .modeToggle p {
+    color: #000;
+}
+aside .modeToggle .modeSwitch {
+    margin-top: -13px;
+}
+aside .modeToggle .modeSwitch input[type="checkbox"] {
+    width: 0;
+    height: 0;
+    visibility: hidden;
+}
+aside .modeToggle .modeSwitch label {
+    display: block;
+    width: 60px;
+    height: 30px;
+    background-color: #477a85;
+    border-radius: 100px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.5s;
+    box-shadow: 0 0 20px #477a8550;
+}
+aside .modeToggle .modeSwitch label::after {
+    content: "";
+    width: 25px;
+    height: 25px;
+    background-color: #e8f5f7;
+    position: absolute;
+    border-radius: 70px;
+    top: 2.5px;
+    left: 3px;
+    transition: 0.5s;
+}
+aside .modeToggle .modeSwitch input:checked + label:after {
+    left: calc(100% - 3px);
+    transform: translateX(-100%);
+}
+aside .modeToggle .modeSwitch input:checked + label {
+    background-color: #243d42;
 }
 aside ul li {
     width: 100%;
@@ -59,19 +117,38 @@ aside ul li a {
     background-color: #ff00;
     transition: .3s;
 }
+aside.light ul li a {
+    color: #676c7f;
+}
 aside ul li.active a {
     color: #fff;
     background-color: hsl(0, 0%, 100%, 10%);
 }
+aside.light ul li.active a {
+    color: #fff;
+    background-color: hsla(0, 0%, 33%, 0.3);
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
 aside ul li:hover a {
     color: #fff;
     background-color: hsl(0, 0%, 100%, 10%);
+}
+aside.light ul li:hover a {
+    color: #fff;
+    background-color: hsla(0, 0%, 33%, 0.3);
+    box-shadow: 1px 1px 9px -1px #ccc;
 }
 aside ul li a img {
     width: 19px;
     margin-right: 10px;
     /* filter: brightness(1); */
     transition: filter .3s ease;
+}
+aside.light ul li.active a img {
+    filter: brightness(100);
+}
+aside.light ul li a img {
+    filter: brightness(.6);
 }
 aside ul li:hover a img {
     filter: brightness(0) invert(1);
@@ -151,6 +228,9 @@ footer ul li a {
     color: #8EC4D2;
     margin-bottom: 30px;
 }
+.light .mainHeading {
+    color: #87b5c1;
+}
 .mainHeading img {
     margin-right: 15px;
 }
@@ -166,8 +246,17 @@ footer ul li a {
     margin-bottom: 15px;
     text-align: center;
 }
+.light .pageTitle h1 {
+    color: #000;
+}
+.light .pageTitle h1 img {
+    filter: brightness(0);
+}
 .pageTitle h1 span {
     color: #8EC4D2;
+}
+.light .pageTitle h1 span {
+    color: #87b5c1;
 }
 .pageTitle h3 {
     font-size: 32px;
@@ -177,6 +266,9 @@ footer ul li a {
     text-align: center;
     /* display: flex;
     align-items: center; */
+}
+.light .pageTitle h3 {
+    color: #de9985;
 }
 .pageTitle h3 {
     margin-bottom: 15px;
@@ -189,6 +281,9 @@ footer ul li a {
     font-weight: 600;
     color: #8EC4D2;
     text-align: center;
+}
+.light .pageTitle h2 {
+    color: #87b5c1;
 }
 
 
@@ -209,9 +304,15 @@ footer ul li a {
     margin: 0 auto;
     margin-bottom: 50px;
 }
+.light .twoTools h2 {
+    color: #000;
+}
 .twoTools img {
     display: block;
     margin-right: 15px;
+}
+.light .twoTools img {
+    filter: brightness(0);
 }
 
 .twoToolWrap {
@@ -227,6 +328,10 @@ footer ul li a {
     border-radius: 8px;
     padding: 17px;
 }
+.light .twoToolSingle {
+    background-color: #f4f4f4;
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
 .twoToolSingle .toolTop {
     display: flex;
     align-items: center;
@@ -235,8 +340,12 @@ footer ul li a {
     font-weight: 600;
     margin-bottom: 20px;
 }
+.light .twoToolSingle .toolTop {
+    color: #000;
+}
 .twoToolSingle .toolTop img {
     margin-right: 15px;
+    filter: unset !important;
 }
 .twoToolSingle .toolInfo {
     font-size: 18px;
@@ -244,6 +353,9 @@ footer ul li a {
     color: #959CB6;
     line-height: 25px;
     margin-bottom: 30px;
+}
+.light .twoToolSingle .toolInfo {
+    color: #676c7f;
 }
 .twoToolSingle button {
     width: 151px;
@@ -275,6 +387,9 @@ footer ul li a {
     color: #EDA793;
     margin-bottom: 70px;
 }
+.light .lessWord h2 {
+    color: #de9985;
+}
 .lessWord h2 img {
     margin-bottom: -8px;
 }
@@ -289,10 +404,18 @@ footer ul li a {
     overflow: hidden;
     border: 6px solid #27293D;
 }
+.light .lessWordWrap .lessWordLeft, .light .lessWordWrap .lessWordRight {
+    border: 6px solid #f4f4f4 !important;
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
 .lessWordLeft .wordLeftTop, .lessWordRight .wordRightTop {
     background-color: #27293D;
     padding: 16px;
     color: #fff;
+}
+.light .lessWordLeft .wordLeftTop, .light .lessWordRight .wordRightTop {
+    background-color: #f4f4f4;
+    color: #000;
 }
 .lessWordLeft .wordLeftTop h3, .lessWordRight .wordRightTop h3 {
     font-size: 24px;
@@ -311,6 +434,10 @@ footer ul li a {
     margin-bottom: 16px;
 
 }
+.light .wordItemWrap .wordItem {
+    background-color: #f4f4f4;
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
 .wordItemWrap .wordItem:last-child {
     margin-bottom: 0;
 }
@@ -326,6 +453,9 @@ footer ul li a {
     color: #959CB6;
     line-height: 29px;
     margin-bottom: 25px;
+}
+.light .wordItemWrap .wordItem p {
+    color: #676c7f;
 }
 .wordItemWrap .wordItem button {
     width: 151px;
@@ -363,6 +493,9 @@ footer ul li a {
     padding: 0 15px;
     margin-bottom: 30px;
 }
+.light .lessWordRight .wordWritePrev h3 {
+    color: #de9985;
+}
 .lessWordRight .wordWritePrev .wordWriteInp {
     width: 100%;
     position: relative;
@@ -378,6 +511,11 @@ footer ul li a {
     font-size: 16px;
     padding: 0 16px;
     padding-right: 75px;
+}
+.light .lessWordRight .wordWritePrev .wordWriteInp input {
+    background-color: #f4f4f4;
+    box-shadow: 1px 1px 9px -1px #ccc;
+    color: #000;
 }
 .lessWordRight .wordWritePrev .wordWriteInp input::placeholder {
     color: #737791;
@@ -396,6 +534,9 @@ footer ul li a {
     top: 50%;
     right: 20px;
     transform: translateY(-50%);
+}
+.light .lessWordRight .wordWritePrev .wordWriteInp button {
+    background-color: #fff;
 }
 .lessWordRight .wordWritePrev .wordWriteInp button img {
     margin: 0;
@@ -438,12 +579,18 @@ footer ul li a {
     margin-bottom: 30px;
     text-align: center;
 }
+.light .bestContent .bestHeading h2 {
+    color: #000;
+}
 .bestContent .bestHeading p {
     font-size: 18px;
     font-weight: 500;
     line-height: 21px;
     color: #959CB6;
     text-align: center;
+}
+.light .bestContent .bestHeading p {
+    color: #676c7f;
 }
 
 .bestWrap {
@@ -458,17 +605,27 @@ footer ul li a {
     background-color: #27293D;
     padding: 15px;
 }
+.light .bestWrap .bestSingleContent {
+    background-color: #f4f4f4;
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
 .bestWrap .bestSingleContent h3 {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 10px;
     color: #fff;
 }
+.light .bestWrap .bestSingleContent h3 {
+    color: #000;
+}
 .bestWrap .bestSingleContent p {
     font-size: 16px;
     font-weight: 400;
     line-height: 22px;
     color: #959CB6;
+}
+.light .bestWrap .bestSingleContent p {
+    color: #676c7f;
 }
 
 
@@ -482,12 +639,19 @@ footer ul li a {
     background-color: #27293D;
     margin-bottom: 80px;
 }
+.light .getStart {
+    background-color: #f4f4f4;
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
 .getStart h2 {
     font-size: 32px;
     font-weight: 600;
     color: #fff;
     margin-bottom: 25px;
     text-align: center;
+}
+.light .getStart h2 {
+    color: #000;
 }
 .getStart .startContent {
     display: flex;
@@ -818,6 +982,10 @@ footer ul li a {
     border-radius: 8px;
     margin-bottom: 60px;
 }
+.light .pricingContent .pricingHeading {
+    background-color: #f4f4f4;
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
 .pricingContent .pricingHeading button {
     width: 134px;
     height: 44px;
@@ -829,8 +997,12 @@ footer ul li a {
     border: none;
     transition: .3s;
 }
+.light .pricingContent .pricingHeading button {
+    color: #000;
+}
 .pricingContent .pricingHeading button.active {
     background-color: #8EC4D2;
+    color: #fff;
 }
 .pricingContent .pricingHeading button.active:hover {
     background-color: #8ec5d2a6;
@@ -853,12 +1025,19 @@ footer ul li a {
     flex-direction: column;
     justify-content: space-between;
 }
+.light .pricingWrap .pricingSingle {
+    background-color: #f4f4f4;
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
 .pricingSingle .pricingSingleTop h3 {
     font-size: 48px;
     font-weight: 600;
     color: #fff;
     text-align: center;
     margin-bottom: 20px;
+}
+.light .pricingWrap .pricingSingle .pricingSingleTop h3 {
+    color: #000;
 }
 .pricingSingle .pricingSingleTop h3 span {
     font-size: 28px;
@@ -870,12 +1049,18 @@ footer ul li a {
     text-align: center;
     margin-bottom: 30px;
 }
+.light .pricingWrap .pricingSingle .pricingSingleTop h4 {
+    color: #000;
+}
 
 .pricingSingle .pricingSingleTop ul li {
     display: flex;
     align-items: flex-start;
     color: #959CB6;
     margin-bottom: 20px;
+}
+.light .pricingWrap .pricingSingle .pricingSingleTop ul li {
+    color: #676c7f;
 }
 .pricingSingle .pricingSingleTop ul li span {
     width: 24px;
@@ -903,8 +1088,15 @@ footer ul li a {
     border-radius: 8px;
     transition: .3s;
 }
+.light .pricingSingle button {
+    background-color: #27293d45;
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
 .pricingSingle button:hover {
     background-color: #393a4ccc;
+}
+.light .pricingSingle button:hover {
+    background-color: #27293d21;
 }
 .pricingSingle.active button {
     background-color: #8EC4D2;
@@ -937,6 +1129,9 @@ footer ul li a {
     padding: 0 70px;
     margin-bottom: 60px;
 }
+.light .everyoneSays h2 {
+    color: #000;
+}
 
 .peopleWrap .swiper-wrapper {
     align-items: center;
@@ -948,12 +1143,19 @@ footer ul li a {
     border-radius: 20px;
     background-color: #27293D;
 }
+.light .peopleWrap .singlePeople {
+    background-color: #f4f4f4;
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
 .singlePeople p {
     font-size: 18px;
     font-weight: 400;
     color: #fff;
     line-height: 28px;
     margin-bottom: 30px;
+}
+.light .peopleWrap .singlePeople p {
+    color: #000;
 }
 .singlePeople .peopleInfo {
     display: flex;
@@ -970,6 +1172,9 @@ footer ul li a {
     font-size: 16px;
     font-weight: 400;
     color: #fff;
+}
+.light .peopleWrap .singlePeople .peopleInfo h4 {
+    color: #000;
 }
 .singlePeople .peopleInfo p {
     font-size: 14px;
@@ -994,8 +1199,14 @@ footer ul li a {
     color: #fff;
     margin: 0 45px;
 }
+.light .peopleNavigation button {
+    color: #000;
+}
 .peopleNavigation button img {
     margin-right: 20px;
+}
+.light .peopleNavigation button img {
+    filter: brightness(0);
 }
 .peopleNavigation button:last-child img {
     margin-right: 0;
@@ -1020,10 +1231,16 @@ footer ul li a {
     color: #fff;
     margin-bottom: 25px;
 }
+.light .askedQuestion .questionHeading h2 {
+    color: #000;
+}
 .askedQuestion .questionHeading p {
     font-size: 20px;
     font-weight: 500;
     color: #959CB6;
+}
+.light .askedQuestion .questionHeading p {
+    color: #676c7f;
 }
 
 
@@ -1035,6 +1252,11 @@ footer ul li a {
     transition: .3s;
     overflow: hidden;
 }
+.light .singleQuestion {
+    background-color: #f4f4f4;
+    border: 1px solid #0000001c;
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
 .singleQuestion .questionTop {
     height: 60px;
     padding: 0 20px;
@@ -1045,8 +1267,14 @@ footer ul li a {
     cursor: pointer;
     color: #fff;
 }
+.light .singleQuestion .questionTop {
+    color: #000;
+}
 .singleQuestion.active .questionTop {
     color: #959CB6;
+}
+.light .singleQuestion.active .questionTop {
+    color: #676c7f;
 }
 .singleQuestion .questionTop .plusImg {
     display: block;
@@ -1072,6 +1300,9 @@ footer ul li a {
     font-weight: 400;
     line-height: 22px;
     color: #fff;
+}
+.light .singleQuestion .questionInfo {
+    color: #000;
 }
 
 
@@ -1176,6 +1407,10 @@ footer ul li a {
     padding: 60px 45px;
     margin-bottom: 80px;
 }
+.light .loginContainer {
+    background-color: #f4f4f4;
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
 .loginMainTop {
     padding: 0;
     margin-bottom: 50px;
@@ -1186,6 +1421,9 @@ footer ul li a {
     margin-bottom: 20px;
     color: #fff;
     text-align: center;
+}
+.light .loginMainTop h1 {
+    color: #000;
 }
 .loginMainTop p {
     font-size: 16px;
@@ -1208,6 +1446,9 @@ footer ul li a {
     display: block;
     margin-bottom: 10px;
 }
+.light .loginContainer form .inpWrap label {
+    color: #000;
+}
 .loginContainer form .inpWrap input {
     width: 100%;
     height: 44px;
@@ -1219,6 +1460,12 @@ footer ul li a {
     border: 1px solid #393A4C;
     outline: none;
     padding: 0 15px;
+}
+.light .loginContainer form .inpWrap input {
+    background-color: #fff;
+    border: 1px solid #0000001c;
+    color: #000;
+    box-shadow: 1px 1px 9px -1px #ccc;
 }
 .loginContainer form .inpWrap input::placeholder {
     color: #878DA6;
@@ -1273,10 +1520,16 @@ footer ul li a {
     border-radius: 3px;
     border: 1px solid #393A4C;
 }
+.light .checkmark {
+    background-color: #fff;
+}
   
 /* On mouse-over, add a grey background color */
 .loginContainer form .rememberInp label:hover input ~ .checkmark {
     background-color: #1E1E2F;
+}
+.light .loginContainer form .rememberInp label:hover input ~ .checkmark {
+    background-color: #e6e6e6;
 }
   
 /* When the checkbox is checked, add a blue background */
@@ -1329,6 +1582,9 @@ footer ul li a {
     margin-bottom: 15px;
     transition: .3s;
 }
+.light .loginBtnWrap button {
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
 .loginBtnWrap button:hover {
     background-color: #8ec5d2a6;
 }
@@ -1339,8 +1595,15 @@ footer ul li a {
     justify-content: center;
     margin-bottom: 0;
 }
+.light .loginBtnWrap button:last-child {
+    background-color: #e6e6e6;
+    color: #000;
+}
 .loginBtnWrap button:last-child:hover {
     background-color: #393a4ccc;
+}
+.light .loginBtnWrap button:last-child:hover {
+    background-color: #393a4c1d;
 }
 .loginBtnWrap button:last-child img {
     margin-right: 15px;
@@ -1415,6 +1678,9 @@ footer ul li a {
     color: #959CB6;
     margin-bottom: 20px;
 }
+.light .chatInpTop .pageTitle h2 {
+    color: #676c7f;
+}
 .chatMainTop .pageTitle h3 {
     font-size: 24px;
     font-weight: 400;
@@ -1422,12 +1688,18 @@ footer ul li a {
     margin-bottom: 20px;
     font-style: normal;
 }
+.light .chatMainTop .pageTitle h3 {
+    color: #676c7f;
+}
 .chatMainTop .pageTitle p {
     text-align: center;
     margin-bottom: 15px;
     font-size: 20px;
     font-weight: 400;
     color: #959CB6;
+}
+.light .chatMainTop .pageTitle p {
+    color: #676c7f;
 }
 
 
@@ -1463,6 +1735,11 @@ footer ul li a {
     font-size: 14px;
     font-weight: 600;
 }
+.light .select-styled {
+    background-color: #f4f4f4;
+    border: 1px solid #36374935;
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
 
 .select-styled:after {
     content: '';
@@ -1486,12 +1763,20 @@ footer ul li a {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border: 1px solid #363749;
     border-radius: 8px;
+    overflow: hidden;
     z-index: 1;
+}
+.light .select-options {
+    background-color: #f4f4f4;
+    border: 1px solid #0000001c;
 }
 
 .custom-select.open .select-options {
     width: 100% !important;
     display: block;
+}
+.chatInpTop .custom-select.open .select-options {
+    width: fit-content !important;
 }
 
 .select-option {
@@ -1579,6 +1864,10 @@ footer ul li a {
 .realToggle .slider.round {
     border-radius: 34px;
 }
+.light .realToggle .slider {
+    background-color: #b8b8b8;
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
   
 .realToggle .slider.round:before {
     border-radius: 50%;
@@ -1607,6 +1896,12 @@ footer ul li a {
     padding: 0 25px;
     padding-right: 70px;
 }
+.light .chatInpMain input {
+    background-color: #f4f4f4;
+    color: #000;
+    border: 1px solid #0000001c;
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
 .chatInpMain input::placeholder {
     color: #737791;
     font-size: 16px;
@@ -1629,8 +1924,14 @@ footer ul li a {
     transform: translateY(-50%);
     transition: .3s;
 }
+.light .chatInpMain button {
+    background-color: #fff;
+}
 .chatInpMain button:hover {
     background-color: #000;
+}
+.light .chatInpMain button:hover {
+    background-color: #e6e6e6;
 }
 
 
@@ -1712,6 +2013,9 @@ footer ul li a {
     display: flex;
     align-items: center;
 }
+.light .writerItemWrap .itemHeading h3 {
+    color: #000;
+}
 .writerItemWrap .itemHeading h3 img {
     margin-right: 5px;
 }
@@ -1721,6 +2025,9 @@ footer ul li a {
     font-weight: 400;
     color: #959CB6;
     margin-bottom: 25px;
+}
+.light .writerItemWrap .itemHeading p {
+    color: #676c7f;
 }
 .writerItemWrap .itemHeading p span {
     font-weight: 600;
@@ -1734,6 +2041,12 @@ footer ul li a {
     width: 100%;
     border: 1px solid #363749;
     border-radius: 8px;
+    overflow: hidden;
+}
+.light .gptWrap {
+    background-color: #fff;
+    border: 1px solid #36374935;
+    box-shadow: 1px 1px 9px -1px #ccc;
 }
 .gptWrap .singleGpt {
     width: 100%;
@@ -1745,6 +2058,15 @@ footer ul li a {
     cursor: pointer;
     transition: .3s;
 }
+.light .gptWrap .singleGpt {
+    border-bottom: 1px solid #36374935;
+}
+.light .gptWrap .singleGpt.active {
+    background-color: #ececec;
+}
+.light .gptWrap .singleGpt h4 {
+    color: #000;
+}
 .gptWrap .singleGpt.active {
     background-color: #27293D;
 }
@@ -1753,6 +2075,9 @@ footer ul li a {
 }
 .gptWrap .singleGpt:hover {
     background-color: #27293D;
+}
+.light .gptWrap .singleGpt:hover {
+    background-color: #ececec;
 }
 .gptWrap .singleGpt .gptLeft {
     width: 20px;
@@ -1787,6 +2112,9 @@ footer ul li a {
     font-size: 14px;
     font-weight: 400;
     color: #959CB6;
+}
+.light .singleGpt .gptRight p {
+    color: #676c7f;
 }
 
 
@@ -1835,8 +2163,19 @@ footer ul li a {
     margin-right: 15px;
     transition: .3s;
 }
+.light .writerBtnWrap button {
+    background-color: #f4f4f4;
+    color: #000;
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
+.light .writerBtnWrap button.active {
+    color: #fff;
+}
 .writerBtnWrap button:hover {
     background-color: #27293dab;
+}
+.light .writerBtnWrap button:hover {
+    background-color: #27293d23;
 }
 .writerBtnWrap button.active {
     background-color: #8EC4D2;
@@ -1900,10 +2239,18 @@ footer ul li a {
     display: flex;
     align-items: center;
 }
+.light .realToggleActivated ul li .toggleActivatedInner {
+    background-color: #f4f4f4;
+    border: 1px solid #393a4c3b;
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
 .realToggleActivated ul li .toggleActivatedInner h3 {
     font-size: 16px;
     font-weight: 700;
     margin-right: 18px;
+}
+.light .realToggleActivated ul li .toggleActivatedInner h3, .light .realToggleActivated ul li .toggleActivatedInner p {
+    color: #000;
 }
 .realToggleActivated ul li .toggleActivatedInner p {
     font-size: 16px;
@@ -1920,6 +2267,9 @@ footer ul li a {
     color: #8EC4D2;
     margin-top: 35px;
     margin-bottom: 40px;
+}
+.light .writerToggleWrap .showAdv {
+    color: #87b5c1;
 }
 .writerToggleWrap .creatArt {
     width: 180px;
@@ -1944,6 +2294,9 @@ footer ul li a {
     display: flex;
     align-items: center;
     color: #fff;
+}
+.light .writerToggleWrap .currentUse {
+    color: #000;
 }
 .writerToggleWrap .currentUse span {
     display: block;
@@ -2039,8 +2392,15 @@ footer ul li a {
     margin-right: 15px;
     transition: .3s;
 }
+.light .resTop .resBtn button {
+    background-color: #27293d45;
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
 .resTop .resBtn button:hover {
     background-color: #27293dab;
+}
+.light .resTop .resBtn button:hover {
+    background-color: #27293d2d;
 }
 .resTop .resBtn button.active {
     background-color: #8EC4D2;
@@ -2058,6 +2418,9 @@ footer ul li a {
     font-weight: 500;
     color: #959CB6;
 }
+.light .resTop p {
+    color: #676c7f;
+}
 
 
 .resMainContent h1 {
@@ -2066,6 +2429,9 @@ footer ul li a {
     color: #fff;
     margin-bottom: 25px;
 }
+.light .resMainContent h1 {
+    color: #000;
+}
 
 .resMainContent h2 {
     font-size: 24px;
@@ -2073,11 +2439,17 @@ footer ul li a {
     color: #fff;
     margin-bottom: 30px;
 }
+.light .resMainContent h2 {
+    color: #000;
+}
 .resMainContent p {
     font-size: 20px;
     font-weight: 400;
     color: #959CB6;
     margin-bottom: 30px;
+}
+.light .resMainContent p {
+    color: #676c7f;
 }
 
 
@@ -2189,6 +2561,9 @@ footer ul li a {
     color: #fff;
     margin-bottom: 25px;
 }
+.light .usageLeft h2 {
+    color: #000;
+}
 
 .usageSingleProgress {
     margin-bottom: 20px;
@@ -2208,6 +2583,10 @@ footer ul li a {
     border-radius: 10px;
     background-color: #27293D;
     overflow: hidden;
+}
+.light .usageProg {
+    background-color: #f4f4f4;
+    box-shadow: 1px 1px 9px -1px #ccc;
 }
 .usageProg .usageProgInner {
     height: 100%;
@@ -2232,6 +2611,10 @@ footer ul li a {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+}
+.light .usageRight {
+    background-color: #f4f4f4;
+    box-shadow: 1px 1px 9px -1px #ccc;
 }
 .usageRight p {
     text-align: center;
@@ -2292,6 +2675,15 @@ footer ul li a {
     font-size: 16px;
     font-weight: 400;
 }
+.light .finalInpRow .finalSingleInp label {
+    color: #000;
+}
+.light .finalInpRow .finalSingleInp input {
+    background-color: #f4f4f4;
+    border: 1px solid #0000001c;
+    color: #000;
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
 
 
 .finalAllInp h2 {
@@ -2301,6 +2693,9 @@ footer ul li a {
     margin-top: 35px;
     margin-bottom: 25px;
 }
+.light .finalAllInp h2 {
+    color: #000;
+}
 
 
 .billingInpWrap {
@@ -2309,8 +2704,16 @@ footer ul li a {
     border: 1px solid #393A4C;
     background-color: #27293D;
 }
+.light .billingInpWrap {
+    background-color: #f4f4f4;
+    border: 1px solid #0000001c;
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
 .billingInpWrap .finalInpRow .finalSingleInp input {
     background-color: #1E1E2F;
+}
+.light .billingInpWrap .finalInpRow .finalSingleInp input {
+    background-color: #e6e6e6;
 }
 
 
@@ -2325,12 +2728,20 @@ footer ul li a {
     color: #fff;
     margin-bottom: 15px;
 }
+.light .currentPlan h2 {
+    color: #000;
+}
 
 .curPlanWrap {
     padding: 20px;
     border-radius: 8px;
     border: 1px solid #393A4C;
     background-color: #27293D;
+}
+.light .curPlanWrap {
+    background-color: #f4f4f4;
+    border: 1px solid #0000001c;
+    box-shadow: 1px 1px 9px -1px #ccc;
 }
 .curPlanWrap h3 {
     font-size: 20px;
@@ -2340,11 +2751,17 @@ footer ul li a {
     display: flex;
     align-items: flex-start;
 }
+.light .curPlanWrap h3 {
+    color: #87b5c1;
+}
 .curPlanWrap h3 span {
     font-size: 12px;
     font-weight: 500;
     color: #EDA793;
     margin-left: 5px;
+}
+.light .curPlanWrap h3 span {
+    color: #de9985;
 }
 
 .curPlanWrap h4 {
@@ -2352,6 +2769,9 @@ footer ul li a {
     font-weight: 600;
     color: #fff;
     margin-bottom: 20px;
+}
+.light .curPlanWrap h4 {
+    color: #000;
 }
 
 
@@ -2378,8 +2798,14 @@ footer ul li a {
     font-weight: 400;
     color: #959CB6;
 }
+.light .singlCurPlan p {
+    color: #676c7f;
+}
 .singlCurPlan p span {
     color: #fff;
+}
+.light .singlCurPlan p span {
+    color: #000;
 }
 .singlCurPlan .curLastImg {
     margin-left: 15px;
@@ -2461,12 +2887,20 @@ footer ul li a {
     background-color: #27293D;
     margin-bottom: 50px;
 }
+.light .historicalContent {
+    background-color: #f4f4f4;
+    border: 1px solid #0000001c;
+    box-shadow: 1px 1px 9px -1px #ccc;
+}
 .historicalContent h2 {
     font-size: 24px;
     font-weight: 600;
     color: #fff;
     margin-bottom: 30px;
     padding: 10px;
+}
+.light .historicalContent h2 {
+    color: #000;
 }
 
 
@@ -2495,6 +2929,9 @@ footer ul li a {
     font-weight: 500;
     color: #fff;
 }
+.light .historicalContent table td {
+    color: #000;
+}
 .historicalContent table td:last-child {
     padding-right: 10px;
 }
@@ -2504,6 +2941,9 @@ footer ul li a {
 }
 .historicalContent table td .histFirstNum img {
     margin-right: 4px;
+}
+.light .historicalContent table td .histFirstNum img {
+    filter: brightness(0);
 }
 .historicalContent table td .tipoItem {
     color: #EDA793;
@@ -2549,6 +2989,9 @@ footer ul li a {
     font-weight: 600;
     color: #fff;
     margin-bottom: 15px;
+}
+.light .lastInvoice .lastInvTop h2 {
+    color: #000;
 }
 .lastInvTop .invBtnWrap {
     display: flex;
